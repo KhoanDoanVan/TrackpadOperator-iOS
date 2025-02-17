@@ -9,11 +9,11 @@ import Foundation
 
 class AppConstants {
     
-    static var portUDPSender: UInt16 = 8080
+    static var portUDP: UInt16 = 8080
     
     static var ofTypeTCPBonjourClient: String = "_chatapp._tcp."
     
     static var inDomainTCPBonjourClient: String = "local."
     
-    static var portTCPBonjour: Int32 = 31242
+    static var portTCPBonjour: Int32 = 12300
 }

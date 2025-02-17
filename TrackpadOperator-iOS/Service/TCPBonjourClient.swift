@@ -101,7 +101,7 @@ class TCPBonjourClient: NSObject, ObservableObject, NetServiceBrowserDelegate, N
         let data = message.data(using: .utf8)!
         
         connection?.send(content: data, completion: .contentProcessed({ error in
-            print("Error to send Messsage from Client: \(String(describing: error?.localizedDescription))")
+            
         }))
         
         DispatchQueue.main.async {

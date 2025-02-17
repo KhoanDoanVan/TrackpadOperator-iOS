@@ -11,7 +11,11 @@ import SwiftUI
 struct TrackpadOperator_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Home()
+                .ignoresSafeArea(.all)
+                .onAppear {
+                    UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+                }
         }
     }
 }

@@ -7,13 +7,17 @@
 
 import UIKit
 
+enum MethodHandle {
+    case tcp, udp
+}
+
 class TrackpadVC: UIViewController {
     
     // MARK: - Properties
-    let onHandler: (String) -> Void
+    let onHandler: (String, MethodHandle) -> Void
     
     // MARK: - Initialize
-    init(onHandler: @escaping (String) -> Void) {
+    init(onHandler: @escaping (String, MethodHandle) -> Void) {
         self.onHandler = onHandler
         super.init(nibName: nil, bundle: nil)
     }
@@ -86,7 +90,7 @@ class TrackpadVC: UIViewController {
     @objc private func handlePan(_ gesture: UIPanGestureRecognizer) {
         let location = gesture.location(in: view)
         print("Pan( x:\(location.x) - y: \(location.y) )")
-        onHandler("Move cursor 🫵")
+        onHandler("Move cursor 🫵", .udp)
         
     }
     
@@ -94,14 +98,14 @@ class TrackpadVC: UIViewController {
     @objc private func handleSingleTap(_ gesture: UITapGestureRecognizer) {
         let location = gesture.location(in: view)
         print("Single_Tap( x: \(location.x) - y: \(location.y) )")
-        onHandler("Single Tap 🖕")
+        onHandler("Single Tap 🖕", .tcp)
     }
     
     /// Double-Tap
     @objc private func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
         let location = gesture.location(in: view)
         print("Double_Tap( x: \(location.x) - y: \(location.y) )")
-        onHandler("Double Tap ✌️")
+        onHandler("Double Tap ✌️", .tcp)
     }
     
     /// 2 Fingers Scroll
@@ -113,9 +117,9 @@ class TrackpadVC: UIViewController {
             if abs(velocity.y) > abs(velocity.x) { /// Velocity
                 
                 if velocity.y > 0 {
-                    onHandler("Scroll Up 👆")
+                    onHandler("Scroll Up 👆", .tcp)
                 } else {
-                    onHandler("Scroll Down 👇")
+                    onHandler("Scroll Down 👇", .tcp)
                 }
                 
             }
@@ -132,20 +136,20 @@ class TrackpadVC: UIViewController {
                 
                 if velocity.x > 0 {
                     print("➡️ 4-Finger Swipe Right")
-                    onHandler("4-Finger Swipe Right 🤌👉")
+                    onHandler("4-Finger Swipe Right 🤌👉", .tcp)
                 } else {
                     print("⬅️ 4-Finger Swipe Left")
-                    onHandler("4-Finger Swipe Left 🤌👈")
+                    onHandler("4-Finger Swipe Left 🤌👈", .tcp)
                 }
                 
             } else {
                 
                 if velocity.y > 0 {
                     print("⬆️ 4-Finger Swipe Up")
-                    onHandler("4-Finger Swipe Up 🤌👆")
+                    onHandler("4-Finger Swipe Up 🤌👆", .tcp)
                 } else {
                     print("⬇️ 4-Finger Swipe Down")
-                    onHandler("4-Finger Swipe Down 🤌👇")
+                    onHandler("4-Finger Swipe Down 🤌👇", .tcp)
                 }
                 
             }
@@ -161,10 +165,10 @@ class TrackpadVC: UIViewController {
             
             if scale > 1.0 {
                 print("🔍 Pinch Out (Zoom In)")
-                onHandler("Zoom In 🖖")
+                onHandler("Zoom In 🖖", .tcp)
             } else {
                 print("🔍 Pinch In (Zoom Out)")
-                onHandler("Zoom Out 🖖")
+                onHandler("Zoom Out 🖖", .tcp)
             }
             
         }
@@ -178,13 +182,13 @@ class TrackpadVC: UIViewController {
 
         case .began:
             print("🖱️ 3-Finger Drag Started at (x: \(location.x), y: \(location.y))")
-            onHandler("3-Finger Drag Started 🤟🖱️")
+            onHandler("3-Finger Drag Started 🤟🖱️", .tcp)
         case .changed:
             print("👏 3-Finger Drag Moving (x: \(location.x), y: \(location.y))")
-            onHandler("3-Finger Drag Moving 🤟👏")
+            onHandler("3-Finger Drag Moving 🤟👏", .tcp)
         case .ended:
             print("✅ 3-Finger Drag Ended at (x: \(location.x), y: \(location.y))")
-            onHandler("3-Finger Drag Ended 🤟✅")
+            onHandler("3-Finger Drag Ended 🤟✅", .tcp)
         default:
             break
         }

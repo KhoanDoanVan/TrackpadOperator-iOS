@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TrackpadView: UIViewControllerRepresentable {
     
-    let onHandler: (String) -> Void
+    let onHandler: (String, MethodHandle) -> Void
     
     func makeUIViewController(context: Context) -> TrackpadVC {
         return TrackpadVC(onHandler: onHandler)
@@ -20,7 +20,7 @@ struct TrackpadView: UIViewControllerRepresentable {
 
 #Preview {
 //    TrackpadView(destinationIP: "")
-    TrackpadView() { message in
+    TrackpadView() { message, method in
         
     }
 }

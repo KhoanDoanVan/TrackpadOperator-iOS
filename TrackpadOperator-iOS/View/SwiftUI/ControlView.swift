@@ -19,9 +19,21 @@ struct ControlView: View {
     
     var body: some View {
         
-        TrackpadView() { message in
-            if client.connection != nil {
-                client.sendMessage(message)
+        TrackpadView() { message, method in
+            
+            switch method {
+                
+            /// TCP
+            case .tcp:
+                if client.connection != nil {
+                    client.sendMessage(message)
+                }
+                
+            /// UDP
+            case .udp:
+                if udpSender != nil {
+                    udpSender?.send(message: message)
+                }
             }
         }
         .onAppear {

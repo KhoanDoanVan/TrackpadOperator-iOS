@@ -32,7 +32,7 @@ class UDPSender {
     private func setupConnection() {
         connection = NWConnection(
             host: NWEndpoint.Host(destinationIP),
-            port: NWEndpoint.Port(integerLiteral: AppConstants.portUDPSender),
+            port: NWEndpoint.Port(integerLiteral: AppConstants.portUDP),
             using: .udp
         )
         
@@ -49,5 +49,20 @@ class UDPSender {
         }
         
         connection?.start(queue: .global())
+    }
+    
+    func send(message: String) {
+        
+        guard let data = message.data(using: .utf8),
+              let connection = connection
+        else {
+            return
+        }
+        
+        connection.send(content: data, completion: .contentProcessed({ error in
+            if let error = error {
+                print("Send Message UDP Error iOS: \(error.localizedDescription)")
+            }
+        }))
     }
 }
