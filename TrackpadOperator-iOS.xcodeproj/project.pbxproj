@@ -10,9 +10,22 @@
 		4639926A2D60151E003028F3 /* TrackpadOperator-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TrackpadOperator-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		461C5C9F2D6318EE00D7C4C1 /* Exceptions for "TrackpadOperator-iOS" folder in "TrackpadOperator-iOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 463992692D60151E003028F3 /* TrackpadOperator-iOS */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4639926C2D60151E003028F3 /* TrackpadOperator-iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				461C5C9F2D6318EE00D7C4C1 /* Exceptions for "TrackpadOperator-iOS" folder in "TrackpadOperator-iOS" target */,
+			);
 			path = "TrackpadOperator-iOS";
 			sourceTree = "<group>";
 		};
@@ -255,7 +268,9 @@
 				DEVELOPMENT_TEAM = 8SBSSA37JJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)";
+				INFOPLIST_FILE = "TrackpadOperator-iOS/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "TrackpadOperator-iOS";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app needs access to the local network to connect to devices.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -285,7 +300,9 @@
 				DEVELOPMENT_TEAM = 8SBSSA37JJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)";
+				INFOPLIST_FILE = "TrackpadOperator-iOS/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "TrackpadOperator-iOS";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app needs access to the local network to connect to devices.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

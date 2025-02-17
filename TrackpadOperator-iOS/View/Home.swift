@@ -33,7 +33,7 @@ struct Home: View {
             }, set: { _ in })) {
                 
                 if let ip = viewModel.scannedIP {
-                    TrackpadView(destinationIP: ip)
+                    ControlView(destinationIP: ip)
                 }
             }
         }

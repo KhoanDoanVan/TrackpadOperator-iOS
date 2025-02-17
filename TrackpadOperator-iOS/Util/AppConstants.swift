@@ -15,5 +15,5 @@ class AppConstants {
     
     static var inDomainTCPBonjourClient: String = "local."
     
-    static var portTCPBonjour: Int32 = 312421
+    static var portTCPBonjour: Int32 = 31242
 }
